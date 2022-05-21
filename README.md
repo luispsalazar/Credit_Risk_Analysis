@@ -4,37 +4,37 @@
 Using the credit card credit dataset from LendingClub, a peer-to-peer lending services company, you’ll oversample the data using the RandomOverSampler and SMOTE algorithms, and undersample the data using the ClusterCentroids algorithm. Then, you’ll use a combinatorial approach of over- and undersampling using the SMOTEENN algorithm. Next, you’ll compare two new machine learning models that reduce bias, BalancedRandomForestClassifier and EasyEnsembleClassifier, to predict credit risk. Once you’re done, you’ll evaluate the performance of these models and make a written recommendation on whether they should be used to predict credit risk.
 
 
-## Deliverable 1: Use Resampling Models to Predict Credit Risk
+## Deliverable 1: Resampling Models to Predict Credit Risk
 
-For all three algorithms, the following have been completed:
-An accuracy score for the model is calculated (7.5 pt)
+### 1.1 Accuracy scores:
 
 ![11](Images/11.png)
 
-A confusion matrix has been generated (7.5 pt)
+### 1.2 Confusion matrices:
+
+![12](Images/12.png)
+
+### 1.3 Imbalanced classification reports:
+
+![13](Images/13.png)
 
 
+## Deliverable 2: SMOTEENN algorithm to Predict Credit Risk
 
-An imbalanced classification report has been generated (15 pt)
+### 2.1 Accuracy score:
 
+![21](Images/21.png)
 
-## Deliverable 2: Use the SMOTEENN algorithm to Predict Credit Risk
+### 2.2 Confusion matrix:
 
-The combinatorial SMOTEENN algorithm does the following:
-An accuracy score for the model is calculated (5 pt)
+![22](Images/22.png)
 
+### 2.3 Imbalanced classification report:
 
-
-A confusion matrix has been generated (5 pt)
-
-
-
-An imbalanced classification report has been generated (5 pt)
+![23](Images/23.png)
 
 
-
-
-## Deliverable 3: Use Ensemble Classifiers to Predict Credit Risk
+## Deliverable 3: Ensemble Classifiers to Predict Credit Risk
 
 The BalancedRandomForestClassifier algorithm does the following:
 An accuracy score for the model is calculated (2.5 pt)
