@@ -1,7 +1,6 @@
 # Credit_Risk_Analysis, Module 17 Challenge
 
-
-Using the credit card credit dataset from LendingClub, a peer-to-peer lending services company, you’ll oversample the data using the RandomOverSampler and SMOTE algorithms, and undersample the data using the ClusterCentroids algorithm. Then, you’ll use a combinatorial approach of over- and undersampling using the SMOTEENN algorithm. Next, you’ll compare two new machine learning models that reduce bias, BalancedRandomForestClassifier and EasyEnsembleClassifier, to predict credit risk. Once you’re done, you’ll evaluate the performance of these models and make a written recommendation on whether they should be used to predict credit risk.
+Six machine learning models are evaluated to predict "credit risk". Undersampling, oversampling and a combination of both models are used.
 
 
 ## Deliverable 1: Resampling Models to Predict Credit Risk
@@ -36,47 +35,73 @@ Using the credit card credit dataset from LendingClub, a peer-to-peer lending se
 
 ## Deliverable 3: Ensemble Classifiers to Predict Credit Risk
 
-The BalancedRandomForestClassifier algorithm does the following:
-An accuracy score for the model is calculated (2.5 pt)
+### 3.1 BalancedRandomForestClassifier
 
+Accuracy score of the model:
 
+![31](Images/31.png)
 
-A confusion matrix has been generated (2.5 pt)
+Confusion matrix:
 
+![32](Images/32.png)
 
+Imbalanced classification report:
 
-An imbalanced classification report has been generated (5 pt)
+![33](Images/33.png)
 
+Features sorted in descending order by feature importance:
 
+![34](Images/34.png)
 
-The features are sorted in descending order by feature importance (5 pt)
+As a plot:
 
+![341](Images/341.png)
 
+### 3.2 EasyEnsembleClassifier algorithm
 
-The EasyEnsembleClassifier algorithm does the following:
-An accuracy score of the model is calculated (2.5 pt)
+Accuracy score of the model:
 
+![35](Images/35.png)
 
+Confusion matrix:
 
-A confusion matrix has been generated (2.5 pt)
+![36](Images/36.png)
 
+Imbalanced classification report:
 
-
-An imbalanced classification report has been generated (5 pt)
-
+![37](Images/37.png)
 
 
 ## Deliverable 4: Written Report on the Credit Risk Analysis
 
-Analysis (24 points)
+### Purpose of this analysis
 
-The written analysis has the following:
-Overview of the loan prediction risk analysis:
-The purpose of this analysis is well defined (4 pt)
+Using the credit card credit dataset provided (LoanStats_2019Q1.csv), the following algorithms will be applied:
 
-Results:
-There is a bulleted list that describes the balanced accuracy score and the precision and recall scores of all six machine learning models (15 pt)
+* RandomOverSampler (oversample)
+* SMOTE (oversample)
+* ClusterCentroids (undersample)
 
-Summary:
-There is a summary of the results (2 pt)
-There is a recommendation on which model to use, or there is no recommendation with a justification (3 pt)
+After that, a combinatorial approach of "over" and "undersampling", using the SMOTEENN algorithm will be performed. The BalancedRandomForestClassifier and EasyEnsembleClassifier will evaluate the data, to predict credit risk.
+
+### Results
+
+Hereafter is a summary of:
+
+* balanced accuracy scores
+* precision (positive predictive value) scores
+* recall (sensitivity) scores
+
+for all six machine learning models.
+
+![40](Images/40.png)
+
+### Summary
+
+1. **Overall Performance:** just looking at the model's performance, without considering any particular risk, the "Accuracy" column shows that the highest score (at 93%) is obtained by the EasyEnsembleClassifier model. And the lowest corresponds to the ClusterCentroids with just 53%.
+2. **High Risk:** in this category, the sensitivity is the metric we want to be the highest. The EasyEnsembleClassifier model again outperformed the others, with a score of 91%, followed by the SMOTEENN with only 69%. Worth noting that the Precision (7%) and F1 (14%) scores are also the highest with this model.
+3. **Low Risk:** because this data is so imbalanced (99.5% low risk vs. 0.5% high risk), it is not a surprise that every model has a precision of 100% for this class. When it comes to sensitivity and F1 scores, one more time, the EasyEnsembleClassfier tops with 94% and 97% respectively. And the lowest scores in both categories were obtained with the ClusterCentriods model (45% and 62%).
+
+When a highly imbalanced dataset is analyzed, from the six models considered, likely, the EasyEnsembleClassfier will yield the highest score for the smallest class (high-risk credit in this particular case). The EasyEnsembleClassifier model involves creating balanced samples of the training dataset by selecting **all examples from the minority class** and a subset from the majority class; thus its performance with this type of datasets.
+
+Other models need to be evaluated to improve the precision while maintaining, or even increasing the sensitivity of the provided dataset.
